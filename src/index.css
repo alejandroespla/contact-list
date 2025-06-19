@@ -1,0 +1,28 @@
+.profile-card {
+    border: 1px solid #dedede;
+    padding: 16px 40px ;
+    display: flex;
+}
+
+.info-card {
+    display: flex;
+    flex-direction: column;
+    
+}
+p {
+    margin: 0px;
+}
+
+.circle {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    margin-right: 50px;
+}
+
+.card-icons {
+    display: flex;
+    justify-content: end;
+    width: 100px;
+
+}

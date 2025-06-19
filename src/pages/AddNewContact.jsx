@@ -1,6 +1,7 @@
-import { Link } from "react-router-dom";  //importar Link!!
+import { Link, useNavigate } from "react-router-dom";  //importar Link!!
 
 export const AddNewContact = () => {
+  
 
   return (
     <div className="container mt-5">
@@ -9,7 +10,7 @@ export const AddNewContact = () => {
         <h1 className="text-center m-5" >Add New Contact</h1>
     <div className="mb-3">
         <label for="exampleInputName" className="form-label">Full Name</label>
-        <input type="name" className="form-control" id="exampleInputName" aria-describedby="Full name" placeholder="Full name" />
+        <input type="fullName" className="form-control" id="exampleInputName" aria-describedby="Full name" placeholder="Full name" />
     </div>
     <div className="mb-3">
         <label for="exampleInputEmail" className="form-label">Email</label>
