@@ -1,32 +1,28 @@
-export const initialStore=()=>{
-  return{
-    message: null,
-    todos: [
-      {
-        id: 1,
-        title: "Make the bed",
-        background: null,
-      },
-      {
-        id: 2,
-        title: "Do my homework",
-        background: null,
-      }
-    ]
-  }
-}
+export const initialStore = () => {  //estado inicial donde se definen las variables
+  return {
+    
+      
+    contacts: [] // Lista de contactos cargados dentro del array
+  };
+};
 
-export default function storeReducer(store, action = {}) {
-  switch(action.type){
-    case 'add_task':
+export default function storeReducer(store, action = {}) {  // cambios que se van a aplicar
+  switch (action.type) {
 
-      const { id,  color } = action.payload
-
+    case 'set-contacts':  // Modifica la lista de contactos
       return {
-        ...store,
-        todos: store.todos.map((todo) => (todo.id === id ? { ...todo, background: color } : todo))
+        ...store, 
+        contacts: action.payload
+        
+        
       };
+
+    //case 'add-contact':   Se haria atraves de la Api
+      
+     // case 'edit-contact': edita con la Api
+        
+
     default:
-      throw Error('Unknown action.');
-  }    
+      throw new Error(`Unknown action type: ${action.type}`);
+  }
 }
