@@ -12,7 +12,7 @@ export const ContactCard = ({ id, name, address, phone, email, deleteContact, ed
       />
 
       <div className="w-100">
-        <h5 className="mb-3">{name}</h5>
+        <h4 className="mb-3">{name}</h4>
 
         <div className="mb-2 d-flex align-items-center text-body-tertiary">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-geo-alt-fill me-2" viewBox="0 0 16 16">
