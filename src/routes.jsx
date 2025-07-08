@@ -29,6 +29,9 @@ export const router = createBrowserRouter(
         <Route path="/demo" element={<Demo />} />
 
         <Route path="/addnewcontact" element={<AddNewContact />} />
+        
+        {/* cargar el edit en la ruta con identificador de id y que te lleve al form */}
+        <Route path="/editcontact/:id" element={<AddNewContact />} />  
       </Route>
     )
 );

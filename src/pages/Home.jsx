@@ -18,7 +18,7 @@ export const Home = () => {
       body: JSON.stringify(
         {
           "slug": "Alex",
-          "id": 15
+          "id": 10
         }
       ),
       headers: { "Content-type": "application/json" }
@@ -45,11 +45,12 @@ export const Home = () => {
         await getContacts();    //actualiza la lista despues de eliminar
     };
 
+    //como ir al edir de addnew contact??
       const editContact = async (contact_id) => {
       await fetch(`https://playground.4geeks.com/contact/agendas/Alex/contacts/${contact_id}`, {
       method: "PUT",
       });
-        await getContacts();    //actualiza la lista despues de eliminar
+        await getContacts();    //actualiza la lista despues de editar
     };
 
 
