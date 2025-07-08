@@ -3,14 +3,14 @@ import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
 
 import { useState, useEffect } from "react";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 import { ContactCard } from "../components/ContactCard";
 
 
 export const Home = () => {
 
   const { store, dispatch } = useGlobalReducer()
-
+  const navigate = useNavigate();
 
   const postAgendas = async () => {
     await fetch("https://playground.4geeks.com/contact/agendas/Alex", {  //añadir contacto POST
@@ -47,10 +47,7 @@ export const Home = () => {
 
     //como ir al edir de addnew contact??
       const editContact = async (contact_id) => {
-      await fetch(`https://playground.4geeks.com/contact/agendas/Alex/contacts/${contact_id}`, {
-      method: "PUT",
-      });
-        await getContacts();    //actualiza la lista despues de editar
+      navigate (`/editcontact/${contact_id}`)
     };
 
 

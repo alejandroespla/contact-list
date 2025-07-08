@@ -11,6 +11,7 @@ import { Single } from "./pages/Single";
 import { Demo } from "./pages/Demo";
 
 import { AddNewContact } from "./pages/AddNewContact";
+import { EditContact } from "./pages/EditContact";
 
 export const router = createBrowserRouter(
     createRoutesFromElements(
@@ -31,7 +32,7 @@ export const router = createBrowserRouter(
         <Route path="/addnewcontact" element={<AddNewContact />} />
         
         {/* cargar el edit en la ruta con identificador de id y que te lleve al form */}
-        <Route path="/editcontact/:id" element={<AddNewContact />} />  
+        <Route path="/editcontact/:id" element={<EditContact />} />  
       </Route>
     )
 );

@@ -1,12 +1,21 @@
-import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useState, } from "react";
+import { useNavigate, Link, useParams} from "react-router-dom";
 import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
+import { useEffect } from "react";
 
-export const AddNewContact = () => {
-  const { dispatch } = useGlobalReducer();  // desde aqui solo vamos a mandar info al store, no recibirla por eso solo se usa dispatch
 
+export const EditContact = () => {
+  const { store, dispatch } = useGlobalReducer();  // desde aqui solo vamos a recibir info del store y mandar info al store
+
+  const { id } = useParams()
+  const contact = store.contacts.find(contact => contact.id === parseInt(id));
   // Hook para navegar a otra ruta
   const navigate = useNavigate();
+    console.log(contact)
+
+    useEffect(()=> {
+        setForm(contact)
+    })
 
   // Estado local para controlar los inputs del formulario
   const [form, setForm] = useState({
@@ -28,9 +37,9 @@ export const AddNewContact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault(); // Evita que la página recargue al hacer submit
 
-    // Petición POST a la API para guardar el nuevo contacto
-    const response = await fetch("https://playground.4geeks.com/contact/agendas/Alex/contacts", {
-      method: "POST",
+    // Petición Put a la API para guardar el nuevo contacto
+    const response = await fetch(`https://playground.4geeks.com/contact/agendas/Alex/contacts/${contact.id}`, {
+      method: "PUT",
       body: JSON.stringify(form),
       headers: { "Content-Type": "application/json" },
       
@@ -50,7 +59,7 @@ export const AddNewContact = () => {
     <div className="container mt-5">
       {/* El formulario envía sus datos mediante handleSubmit */}
       <form className="w-100" onSubmit={handleSubmit}>
-        <h1 className="text-center m-5">Add New Contact</h1>
+        <h1 className="text-center m-5">Edit Contact</h1>
 
         {/* Campo: nombre */}
         <div className="mb-3">
